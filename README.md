@@ -4,7 +4,7 @@ TermTimer is a terminal based timer. If you wish to contribute to our project th
 ## Installation
 
 ```bash
-git clone https://github.com/Kenraaliskuutteri/Termclock
+git clone https://github.com/Kenraaliskuutteri/Termtimer
 cd Termclock
 make
 sudo make install
