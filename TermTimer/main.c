@@ -1,7 +1,10 @@
 #include <stdio.h>
-#include <time.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
+//removed the time library since it was unused
+char *clearcomm = "clear";
+
 
 static const char *BIG_DIGITS[11][5] = {
     {" *** ","*   *","*   *","*   *"," *** "},
@@ -41,6 +44,10 @@ int main(){
     int secs = 0;
     int mins = 0;
     int hours = 0;
+    
+    #ifdef _WIN32
+    clearcomm = "cls";
+    #endif
 
     while (1)
     {
@@ -48,9 +55,9 @@ int main(){
         mins = secs / 60;
         hours = mins / 60;
         print_big_time(hours % 24, mins % 60, secs % 60);
-
         fflush(stdout);
         sleep(1);
+        system(clearcomm);
     }
 
     return 0;
